@@ -1,0 +1,92 @@
+/* main */
+.main-owl > .owl-nav {
+    position: absolute !important;
+    right: 0px !important;
+    top: 93% !important;
+}
+
+/* common header menu */
+.header__menu ul li a {
+    font-size: 18px;
+}
+
+/* 상품 목록에서 좋아요, 장바구니 아이콘 바로 보여지도록 */
+.featured__item__pic__hover {
+    bottom: 20px !important;
+}
+
+.featured__item__pic__hover li a i {
+    transition: none;
+}
+
+/* 상품 목록 */
+.product_area {
+    text-align: left !important;
+}
+
+.product_area > .shop_title {
+    background: #f5f5f5;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #7fad39;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.product_area > .title {
+    line-height: 20px;
+    margin-bottom: 0;
+    display: block;
+    overflow: hidden;
+    height: 22px;
+    margin-top: 5px;
+    font-size: 16px;
+    /*line-height: 22px;*/
+    color: #444;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+    font-weight: 700;
+}
+
+.product_area > .sub_title {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #999;
+    vertical-align: top;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+}
+
+.product_area > .price_area > .price {
+    color: #222;
+    font-size: 1.7rem;
+    margin-left: 10px;
+    display: inline;
+    font-weight: 700;
+}
+
+.product_area > .price_area > .price > .unit {
+    font-size: 0.9rem;
+}
+
+.product_area > .price_area > .price_dc {
+    color: #ff0038;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.product_area > .price_area > .original_price {
+    margin-left: 10px;
+    color: #999;
+    font-size: 1.1rem;
+    text-decoration: line-through;
+}
+
+.product_area > .buy_state {
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    /*justify-content: flex-start;*/
+}

@@ -1,1 +1,14 @@
-
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wonbae
+    driver-class-name: org.postgresql.Driver
+    username: wonbae
+    password: wonbae
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
