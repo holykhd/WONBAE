@@ -1,7 +1,9 @@
 package com.wonbae.domain;
 
 import com.wonbae.domain.enumType.GenderRole;
+import com.wonbae.front.auth.form.SignupForm;
 import lombok.Getter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,10 +19,10 @@ import static javax.persistence.EnumType.STRING;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;                    // 회원 고유 아이디(자동 증가값)
+    @Column(name = "id")
+    private Long id;                        // 회원 고유 아이디(자동 증가값)
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;                   // 회원 이메일
 
     private String name;                    // 회원 이름
@@ -45,6 +47,8 @@ public class Account {
     @Column(name = "second_fav_store")
     private String secondFavStore;          // 주 이용 마트명 2
 
+    private String role;                    // 회원 권한
+
     // 문자인증 기능 추가....고민
 
     // https://naosmall.kr/member/join.html 개인정보/이용약관등 내용 참조
@@ -66,4 +70,15 @@ public class Account {
 
     @Column(name = "created_date")
     private LocalDateTime createdDate;      // 등록일
+
+    @PrePersist
+    public void createDate() {
+        this.createdDate = LocalDateTime.now();
+    }
+
+    // 회원을 가입한다.
+    public void createAccount(SignupForm signupForm, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.email = signupForm.getEmail();
+        this.password = bCryptPasswordEncoder.encode(signupForm.getRePassword());
+    }
 }

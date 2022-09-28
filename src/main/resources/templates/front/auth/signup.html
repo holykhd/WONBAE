@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="/front/fragment/header :: head"></head>
-
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
 </div>
 
-<div class="position-fixed w-100 bg-white" style="z-index:999">
+<!--<div class="position-fixed w-100 bg-white" style="z-index:999">-->
+<div class="w-100 bg-white" style="z-index:999">
     <div th:replace="/front/fragment/header-mobile-menu :: header-mobile-menu"></div>
 
     <!-- Header Section Begin -->
@@ -23,148 +22,90 @@
 
 <!-- Header Section End -->
 
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Checkout</h2>
-                    <div class="breadcrumb__option">
-                        <a href="./index.html">Home</a>
-                        <span>Checkout</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Breadcrumb Section End -->
-
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                </h6>
-            </div>
-        </div>
         <div class="checkout__form">
-            <h4>Billing Details</h4>
-            <form action="#">
+            <h4 class="text-center">회원가입</h4>
+            <form th:action="@{/auth/signup}" method="post">
                 <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Fist Name<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Last Name<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                            </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout__input">
+                            <p>이메일<span>*</span><span class="pl-2 text-danger small">입력하신 이메일로 인증코드가 발송됩니다.</span></p>
+                            <input type="email" name="email">
                         </div>
                         <div class="checkout__input">
-                            <p>Country<span>*</span></p>
-                            <input type="text">
+                            <p>비밀번호<span>*</span></p>
+                            <input type="text" name="password">
                         </div>
                         <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address" class="checkout__input__add">
-                            <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Town/City<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Country/State<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="acc">
-                                Create an account?
-                                <input type="checkbox" id="acc">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <p>Create an account by entering the information below. If you are a returning customer
-                            please login at the top of the page</p>
-                        <div class="checkout__input">
-                            <p>Account Password<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="diff-acc">
-                                Ship to a different address?
-                                <input type="checkbox" id="diff-acc">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Order notes<span>*</span></p>
-                            <input type="text"
-                                   placeholder="Notes about your order, e.g. special notes for delivery.">
+                            <p>비밀번호 확인<span>*</span></p>
+                            <input type="text" name="rePassword">
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
+                        <!-- start -->
+                        <!-- end -->
                         <div class="checkout__order">
-                            <h4>Your Order</h4>
-                            <div class="checkout__order__products">Products <span>Total</span></div>
-                            <ul>
-                                <li>Vegetable’s Package <span>$75.99</span></li>
-                                <li>Fresh Vegetable <span>$151.99</span></li>
-                                <li>Organic Bananas <span>$53.99</span></li>
-                            </ul>
-                            <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                            <div class="checkout__order__total">Total <span>$750.99</span></div>
+                            <h4>필수 약관 동의</h4>
                             <div class="checkout__input__checkbox">
                                 <label for="acc-or">
-                                    Create an account?
+                                    이용약관에 모두 동의합니다.
                                     <input type="checkbox" id="acc-or">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
                             <div class="checkout__input__checkbox">
-                                <label for="payment">
-                                    Check Payment
-                                    <input type="checkbox" id="payment">
-                                    <span class="checkmark"></span>
-                                </label>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <label for="payment">
+                                        이용약관(필수)
+                                        <input type="checkbox" id="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                    <a href="#" class="btn bg-dark text-white" data-toggle="collapse"
+                                       th:href="@{#collapseExample}" aria-expanded="false"
+                                       aria-controls="collapseExample">약관보기</a>
+                                </div>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="well w-100 bg-white overflow-auto p-3" style="height: 200px;">
+                                            <pre>
+제 1조 [목적]
+본 약관은 대성학원 본원(이하 “회사”라 합니다.)이 운영하는 인터넷사이트(이하 “사이트”라 합니다.)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 합니다.)를 이용함에 있어, 서비스 이용조건과 절차 및 기타 필요한 사항을 규정합니다.
+
+제 2조[용어의 정의]
+본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+
+                                            </pre>
+                                    </div>
+                                </div>
                             </div>
                             <div class="checkout__input__checkbox">
-                                <label for="paypal">
-                                    Paypal
-                                    <input type="checkbox" id="paypal">
-                                    <span class="checkmark"></span>
-                                </label>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <label for="paypal">
+                                        개인정보 수집 및 이용(필수)
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <a class="btn bg-dark text-white" data-toggle="collapse"
+                                       th:href="@{#collapseExample2}" aria-expanded="false"
+                                       aria-controls="collapseExample">
+                                        약관보기
+                                    </a>
+                                </div>
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="well w-100 bg-white overflow-auto p-3" style="height: 200px;">
+                                            <pre>
+제 1조 [목적]
+본 약관은 대성학원 본원(이하 “회사”라 합니다.)이 운영하는 인터넷사이트(이하 “사이트”라 합니다.)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 합니다.)를 이용함에 있어, 서비스 이용조건과 절차 및 기타 필요한 사항을 규정합니다.
+
+제 2조[용어의 정의]
+본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+                                            </pre>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                            <button type="submit" class="site-btn">회원 가입하기</button>
                         </div>
                     </div>
                 </div>
