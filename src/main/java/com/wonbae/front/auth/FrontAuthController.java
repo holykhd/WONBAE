@@ -1,5 +1,6 @@
 package com.wonbae.front.auth;
 
+import com.wonbae.front.auth.form.SigninForm;
 import com.wonbae.front.auth.form.SignupForm;
 import com.wonbae.handler.frontHandler.exception.CommonValidationException;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -18,15 +20,22 @@ import java.util.Map;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/auth")
 public class FrontAuthController {
     private final FrontAuthService frontAuthService;
 
-    @GetMapping("/auth/signup")
+    /**
+     * 회원 가입 폼
+     */
+    @GetMapping("/signup")
     public String singUpForm() {
         return "front/auth/signup";
     }
 
-    @PostMapping("/auth/signup")
+    /**
+     * 회원가입
+     */
+    @PostMapping("/signup")
     public String signUp(@Valid SignupForm signupForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -44,4 +53,13 @@ public class FrontAuthController {
 
         return "front/auth/signup";
     }
+
+    /**
+     * 로그인 폼
+     */
+    @GetMapping("/signin")
+    public String signin(SigninForm signinForm) {
+        return "front/auth/signin";
+    }
+
 }

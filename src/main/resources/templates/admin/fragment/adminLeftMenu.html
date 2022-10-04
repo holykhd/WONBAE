@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<aside th:fragment="adminLeftMenu" id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a th:href="@{/admin}" class="app-brand-link">
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">WONBAE</span>
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">사이트 관리</span></li>
+        <li class="menu-item active">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">기본 설정</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item active">
+                    <a th:href="@{/admin/site/siteList}" class="menu-link">
+                        <div data-i18n="Without menu">쇼핑몰 관리자 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/site/siteMenuList}" class="menu-link">
+                        <div data-i18n="Without menu">관리페이지 메뉴 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/site/menuList}" class="menu-link">
+                        <div data-i18n="Without menu">관리자별 메뉴 설정</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/site/agreeEdit}" class="menu-link">
+                        <div data-i18n="Without menu">약관 및 정책 설정</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">사이트 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/site/siteManagement}" class="menu-link">
+                        <div data-i18n="Without menu">사이트 기본 관리(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">베너/팝업 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/ad/mainBannerList}" class="menu-link">
+                        <div data-i18n="Without menu">메인 배너 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/ad/subBannerList}" class="menu-link">
+                        <div data-i18n="Without menu">서브 메인 배너 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/ad/popupList}" class="menu-link">
+                        <div data-i18n="Without menu">팝업 관리(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">회원 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/account/accountList}" class="menu-link">
+                        <div data-i18n="Without menu">회원 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/account/restAccountList}" class="menu-link">
+                        <div data-i18n="Without menu">휴면 회원 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/account/leaveAccountList}" class="menu-link">
+                        <div data-i18n="Without menu">탈퇴 회원 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/account/pointList}" class="menu-link">
+                        <div data-i18n="Without menu">포인트 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/account/couponList}" class="menu-link">
+                        <div data-i18n="Without menu">쿠폰 관리</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">마트 관리</span></li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">마트 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/martStore/martStoreList}" class="menu-link">
+                        <div data-i18n="Without menu">입점 마트 목록(X)</div>
+                    </a>
+                <li class="menu-item">
+                    <a th:href="@{/admin/martStore/martOrderList}" class="menu-link">
+                        <div data-i18n="Without menu">마트 주문 현황(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/martStore/martSalesList}" class="menu-link">
+                        <div data-i18n="Without menu">마트 매출 현황(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/martStore/martCodeList}" class="menu-link">
+                        <div data-i18n="Without menu">마트 코드 관리(X)</div>
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">쇼핑몰 관리</span></li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">주문/결제 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/order/orderList}" class="menu-link">
+                        <div data-i18n="Without menu">주문 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/order/orderCancelList}" class="menu-link">
+                        <div data-i18n="Without menu">주문 취소 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/order/orderStaticList}" class="menu-link">
+                        <div data-i18n="Without menu">주문 현황</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/order/orderCalcList}" class="menu-link">
+                        <div data-i18n="Without menu">정산 현황</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/order/orderReturnList}" class="menu-link">
+                        <div data-i18n="Without menu">교환/반품관리</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">상품 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/product/categoryList}" class="menu-link">
+                        <div data-i18n="Without menu">카테고리 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/product/goodsList}" class="menu-link">
+                        <div data-i18n="Without menu">상품 관리</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{layouts-without-menu.html}" class="menu-link">
+                        <div data-i18n="Without menu">대량상품 등록(X)</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a th:href="@{/admin/product/reviewList}" class="menu-link">
+                        <div data-i18n="Without menu">상품 후기 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/product/goodsQuestionList}" class="menu-link">
+                        <div data-i18n="Without menu">상품 문의 관리(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">커뮤니티 관리</span></li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">커뮤니티 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/boardManagerList}" class="menu-link">
+                        <div data-i18n="Without menu">게시판 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/noticeList}" class="menu-link">
+                        <div data-i18n="Without menu">공지사항 관리(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/privateList}" class="menu-link">
+                        <div data-i18n="Without menu">개인문의(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/qnaList}" class="menu-link">
+                        <div data-i18n="Without menu">Q&A 문의(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/faqList}" class="menu-link">
+                        <div data-i18n="Without menu">FAQ(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/storeList}" class="menu-link">
+                        <div data-i18n="Without menu">제휴/입점문의(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/community/martRegisterList}" class="menu-link">
+                        <div data-i18n="Without menu">마트 등록요청(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">통계 관리</span></li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">사이트 통계 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/dayList}" class="menu-link">
+                        <div data-i18n="Without menu">일별 접속 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/timeList}" class="menu-link">
+                        <div data-i18n="Without menu">시간별 접속 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/monthList}" class="menu-link">
+                        <div data-i18n="Without menu">월별 접속 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/yearList}" class="menu-link">
+                        <div data-i18n="Without menu">년별 접속 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/pathList}" class="menu-link">
+                        <div data-i18n="Without menu">접속 경로별 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/detailLogList}" class="menu-link">
+                        <div data-i18n="Without menu">상세 로그(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/siteStatistics/osList}" class="menu-link">
+                        <div data-i18n="Without menu">운영체제별 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/statistics/browserList}" class="menu-link">
+                        <div data-i18n="Without menu">브라우저별 통계(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">쇼핑몰 통계 관리</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/localList}" class="menu-link">
+                        <div data-i18n="Without menu">지역별 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/cartList}" class="menu-link">
+                        <div data-i18n="Without menu">장바구니별 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/wishList}" class="menu-link">
+                        <div data-i18n="Without menu">위시리스트 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/searchWordList}" class="menu-link">
+                        <div data-i18n="Without menu">검색어 통계(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/reviewList}" class="menu-link">
+                        <div data-i18n="Without menu">상품 후기(X)</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/admin/shopStatistics/alarmList}" class="menu-link">
+                        <div data-i18n="Without menu">재입고 알림(X)</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+</html>

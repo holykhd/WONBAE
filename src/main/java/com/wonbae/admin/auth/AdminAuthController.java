@@ -1,4 +1,4 @@
-package com.wonbae.admin.main;
+package com.wonbae.admin.auth;
 
 import com.wonbae.admin.main.form.SignUpForm;
 import lombok.RequiredArgsConstructor;

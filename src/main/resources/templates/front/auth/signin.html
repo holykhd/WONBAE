@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/front/fragment/header :: head"></head>
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!--<div class="position-fixed w-100 bg-white" style="z-index:999">-->
+<div class="w-100 bg-white" style="z-index:999">
+    <div th:replace="/front/fragment/header-mobile-menu :: header-mobile-menu"></div>
+
+    <!-- Header Section Begin -->
+    <div th:replace="/front/fragment/header-menu :: header-menu"></div>
+    <!-- Header Section End -->
+
+    <!-- 공통 상단 메뉴 -->
+    <div th:replace="/front/fragment/common :: gnb-top-menu"></div>
+</div>
+
+<!-- Header Section End -->
+
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form signin-form">
+            <h4 class="text-center">로그인</h4>
+            <form th:action="@{/auth/signin}" method="post">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- start -->
+                        <!-- end -->
+                        <div class="checkout__order">
+                            <div class="checkout__input">
+                                <p>이메일<span>*</span><span class="pl-2 text-danger small">입력하신 이메일로 인증코드가 발송됩니다.</span>
+                                </p>
+                                <input type="email" name="email">
+                            </div>
+                            <div class="checkout__input">
+                                <p>비밀번호<span>*</span></p>
+                                <input type="password" name="password">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="checkout__input__checkbox">
+                                    <label for="acc-or">
+                                        아이디 저장
+                                        <input type="checkbox" id="acc-or">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <ul class="d-flex login-btn-search">
+                                        <li><a href="#">아이디 찾기</a></li>
+                                        <li><a href="#">비밀번호 찾기</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-login btn btn-success">로그인</button>
+                            <a th:href="@{/auth/signup}">
+                                <button type="button" class="btn btn-outline-secondary">회원가입</button>
+                            </a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>간편로그인</div>
+                                <div>
+                                    <ul class="d-flex sns-btn">
+                                        <li><a href="#"><img src="https://i.imgur.com/2KsAQrf.png"></a></li>
+                                        <li><a href="#"><img src="https://i.imgur.com/7lGytpI.png"></a></li>
+                                        <li><a href="#"><img src="https://i.imgur.com/IZrLodh.png"></a></li>
+                                        <li><a href="#"><img src="https://i.imgur.com/qLVpDbX.png"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-no-member">비회원 주문하기</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Checkout Section End -->
+<footer th:replace="/front/fragment/footer :: footer"></footer>
+
+
+</body>
+
+</html>

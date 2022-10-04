@@ -30,7 +30,7 @@
                             </ul>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <a th:href="@{/auth/signin}"><i class="fa fa-user"></i> Login</a>
                         </div>
                     </div>
                 </div>
@@ -41,17 +41,17 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo text-center">
-                    <a href="./index.html"><img src="/front/img/logo.png" alt=""></a>
+                    <a th:href="@{/}"><img src="/front/img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-9">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="#">정육코너</a></li>
-                        <li><a href="#">과일코너</a></li>
-                        <li><a href="#">야채코너</a></li>
-                        <li><a href="#">공산코너</a></li>
-                        <li><a href="#">할인/이벤트</a></li>
+                        <li class="active"><a th:href="@{/shop/main/meat}">정육코너</a></li>
+                        <li><a th:href="@{/shop/main/fruit}">과일코너</a></li>
+                        <li><a th:href="@{/shop/main/vagetable}">야채코너</a></li>
+                        <li><a th:href="@{/shop/main/goods}">공산코너</a></li>
+                        <li><a th:href="@{/shop/main/event}">할인/이벤트</a></li>
                     </ul>
                 </nav>
             </div>

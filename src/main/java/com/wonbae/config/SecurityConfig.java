@@ -19,6 +19,7 @@ public class SecurityConfig {
     }
 
 
+    // https://mangkyu.tistory.com/77
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
@@ -33,8 +34,10 @@ public class SecurityConfig {
                 .permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/admin/signIn")
+                .loginPage("/auth/signin")
+                .loginProcessingUrl("/auth/signin")
                 .defaultSuccessUrl("/")
+                .usernameParameter("email")
                 .and().build();
     }
 

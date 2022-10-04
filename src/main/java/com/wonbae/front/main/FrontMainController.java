@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FrontMainController {
     @GetMapping("/")
     public String main() {
-        return "front/index";
+        return "front/shop/index";
     }
+
 }
