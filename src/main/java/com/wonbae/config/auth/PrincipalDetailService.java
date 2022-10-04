@@ -18,9 +18,11 @@ public class PrincipalDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account selectEmail = accountRepository.findByEmail(username);
-        log.info("selectEmail = {}", selectEmail.getEmail());
-        log.info("selectEmail = {}", selectEmail.getId());
-        return null;
+        Account accountEntity = accountRepository.findByEmail(username);
+        if (accountEntity == null) {
+            return null;
+        } else {
+            return new PrincipalDetails(accountEntity);
+        }
     }
 }
