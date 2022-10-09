@@ -57,9 +57,9 @@
                             </div>
                             <div class="checkout__input__checkbox">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <label for="payment">
+                                    <label for="agreePrivacy">
                                         이용약관(필수)
-                                        <input type="checkbox" id="payment">
+                                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy" th:value="true">
                                         <span class="checkmark"></span>
                                     </label>
 
@@ -82,9 +82,9 @@
                             </div>
                             <div class="checkout__input__checkbox">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <label for="paypal">
+                                    <label for="agreeService">
                                         개인정보 수집 및 이용(필수)
-                                        <input type="checkbox" id="paypal">
+                                        <input type="checkbox" id="agreeService" name="agreeService" th:value="true">
                                         <span class="checkmark"></span>
                                     </label>
                                     <a class="btn bg-dark text-white" data-toggle="collapse"

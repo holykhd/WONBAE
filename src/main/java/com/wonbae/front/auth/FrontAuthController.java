@@ -1,11 +1,17 @@
 package com.wonbae.front.auth;
 
+import com.wonbae.config.auth.PrincipalDetailService;
+import com.wonbae.config.auth.PrincipalDetails;
 import com.wonbae.front.auth.form.SigninForm;
 import com.wonbae.front.auth.form.SignupForm;
 import com.wonbae.handler.frontHandler.exception.CommonValidationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -51,14 +57,22 @@ public class FrontAuthController {
 
         frontAuthService.createAccountProcessor(signupForm);
 
-        return "front/auth/signup";
+        return "redirect:/auth/signin";
     }
 
     /**
      * 로그인 폼
      */
     @GetMapping("/signin")
-    public String signin(SigninForm signinForm) {
+    public String signinForm(SigninForm signinForm) {
+        return "front/auth/signin";
+    }
+
+    /**
+     * 로그인
+     */
+    @PostMapping("/signin")
+    public String signin(@AuthenticationPrincipal PrincipalDetails principalDetails, SigninForm signinForm) {
         return "front/auth/signin";
     }
 

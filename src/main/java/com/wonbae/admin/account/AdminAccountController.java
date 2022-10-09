@@ -1,19 +1,23 @@
 package com.wonbae.admin.account;
 
+import com.wonbae.admin.account.form.AccountForm;
 import com.wonbae.domain.Account;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin/account")
 public class AdminAccountController {
+    private final AdminAccountService adminAccountService;
     /**
      *  참고 사이트
      *  http://tplusv50.onedaynet.co.kr/totalAdmin/_coupon.list.php?
@@ -23,15 +27,19 @@ public class AdminAccountController {
      * 회원 목록
      */
     @GetMapping("/accountList")
-    public String accountList() {
+    public String accountList(Model model, @PageableDefault(size = 20, sort = "createdDate", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageImpl<AccountForm> accountList = adminAccountService.selectAccountListProcessor(pageable);
+        model.addAttribute("accountList", accountList);
         return "admin/account/accountList";
     }
 
     /**
      * 회원 상세
      */
-    @GetMapping("/accountDetail")
-    public String accountDetail() {
+    @GetMapping("/accountDetail/{id}")
+    public String accountDetail(@PathVariable long id, Model model) {
+        Account account = adminAccountService.selectAccountDetailProcessor(id);
+        model.addAttribute("account", account);
         return "admin/account/accountDetail";
     }
 

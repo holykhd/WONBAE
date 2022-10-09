@@ -143,32 +143,94 @@
                   <h5 class="mb-0">회원 기본 정보</h5>
                 </div>
                 <div class="card-body">
-                  <form>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">아이디</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="id">아이디</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="id" th:value="${account.id}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="name">이름</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="name" th:value="${account.name}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="gender">성별</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="gender" th:value="${account.gender}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">이름</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="email">이메일</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="email" th:value="${account.email}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="phone">전화번호</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="phone" th:value="${account.phone}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="agreePrivacy">개인정보 수집 동의</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="agreePrivacy"
+                                           th:value="${account.agreePrivacy}" readonly>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">이메일</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="agreeService">이용약관 동의</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="agreeService"
+                                           th:value="${account.agreeService}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="agreeSms">SMS 수신동의</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="agreeSms" th:value="${account.agreeSms}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <label class="form-label" for="agreeEmail">E-MAIL 수신동의</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" id="agreeEmail"
+                                           th:value="${account.agreeEmail}" readonly>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">전화번호</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId">
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -183,39 +245,56 @@
                 <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="mb-0">거주지역 정보</h5>
                 </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">시/도</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="city">시/도</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="city" th:value="${account.city}"
+                                             readonly>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="guGun">구/군</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="guGun" th:value="${account.guGun}"
+                                             readonly>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="dong">동</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="dong" th:value="${account.dong}"
+                                             readonly>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">구/군</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
+                      <div class="row">
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="aptName">아파트명</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="aptName" th:value="${account.aptName}"
+                                             readonly>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="dongHo">상세주소(동/호수)</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="dongHo" th:value="${account.dongHo}"
+                                             readonly>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">동</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">아파트명</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">상세주소(동/호수)</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId">
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -230,60 +309,75 @@
                 <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="mb-0">이용 마트 정보</h5>
                 </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">이용마트</label>
-                      <div class="col-sm-10">
-                        <select id="selectTypeOpt" class="form-select color-dropdown">
-                          <option value="bg-primary" selected="">전체</option>
-                          <option value="bg-secondary">A 마트</option>
-                          <option value="bg-success">B 마트</option>
-                          <option value="bg-danger">C 마트</option>
-                          <option value="bg-warning">D 마트</option>
-                          <option value="bg-info">E 마트</option>
-                          <option value="bg-dark">F 마트</option>
-                        </select>
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="selectTypeOpt">이용마트</label>
+                                  <div class="input-group input-group-merge">
+                                      <select id="selectTypeOpt" class="form-select color-dropdown">
+                                          <option value="bg-primary" selected="">전체</option>
+                                          <option value="bg-secondary">A 마트</option>
+                                          <option value="bg-success">B 마트</option>
+                                          <option value="bg-danger">C 마트</option>
+                                          <option value="bg-warning">D 마트</option>
+                                          <option value="bg-info">E 마트</option>
+                                          <option value="bg-dark">F 마트</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="selectTypeOpt">총 이용 마트 수</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="accountId" readonly>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-12 col-lg-4 mb-3">
+                              <div class="row">
+                                  <label class="form-label" for="selectTypeOpt">전체 주문 수</label>
+                                  <div class="input-group input-group-merge">
+                                      <input type="text" class="form-control" id="accountId" readonly>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12 col-lg-4 mb-3">
+                                  <div class="row">
+                                      <label class="label" for="selectTypeOpt">전체 이용 금액</label>
+                                      <div class="input-group input-group-merge">
+                                          <input type="text" class="form-control" id="accountId" readonly>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-12 col-lg-4 mb-3">
+                                  <div class="row">
+                                      <label class="form-label" for="selectTypeOpt">마지막 이용날짜</label>
+                                      <div class="input-group input-group-merge">
+                                          <input type="text" class="form-control" id="accountId">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-12 col-lg-4 mb-3">
+                                  <div class="row">
+                                      <label class="form-label" for="selectTypeOpt">마지막 이용 아파트</label>
+                                      <div class="input-group input-group-merge">
+                                          <input type="text" class="form-control" id="accountId">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">총 이용 마트 수</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
+                      <div class="row mb-3">
+                          <div class="demo-inline-spacing col-12 d-flex justify-content-center">
+                              <button type="submit" class="btn btn-outline-secondary">검색</button>
+                              <a th:href="@{/admin/account/accountList}" type="submit"
+                                 class="btn btn-outline-secondary">목록</a>
+                          </div>
                       </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">전체 주문 수</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">전체 이용 금액</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId" readonly>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">마지막 이용날짜</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label class="col-sm-2 d-flex align-items-center" for="selectTypeOpt">마지막 이용 아파트</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="accountId">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="demo-inline-spacing col-12 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-secondary">검색</button>
-                        <button type="submit" class="btn btn-outline-secondary">목록</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                  </div>
               </div>
             </div>
           </div>

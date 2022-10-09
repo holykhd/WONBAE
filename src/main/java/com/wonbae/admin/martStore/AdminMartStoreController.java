@@ -1,17 +1,77 @@
 package com.wonbae.admin.martStore;
 
+import com.wonbae.admin.account.form.AccountForm;
+import com.wonbae.domain.Account;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.jws.WebParam;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin/martStore")
 public class AdminMartStoreController {
+    private final AdminMartStoreService adminMartStoreService;
+
+    /**
+     * 마트 관리자 목록
+     */
+    @GetMapping("/martStoreManagerList")
+    public String martStoreManagerList(Model model, @PageableDefault(size = 10, sort = "created_date", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageImpl<AccountForm> accountList = adminMartStoreService.martStoreManagerListProcessor(pageable);
+        model.addAttribute("accountList", accountList);
+        return "/admin/martStore/martStoreManagerList";
+    }
+
+    /**
+     * 마트 관리자 상세
+     */
+    @GetMapping("/martStoreManagerDetail/{id}")
+    public String martStoreManagerDetail(@PathVariable long id, Model model) {
+        Account account = adminMartStoreService.selectAccountDetailProcessor(id);
+        model.addAttribute("account", account);
+        return "/admin/martStore/martStoreManagerDetail";
+    }
+
+    /**
+     * 관리자 등록 폼
+     */
+    @GetMapping("/martStoreManagerEdit")
+    public String martStoreManagerEditForm() {
+        return "/admin/martStore/martStoreManagerEdit";
+    }
+
+    /**
+     * 마트 관리자 등록
+     */
+    @PostMapping("/martStoreManagerEdit")
+    public String martStoreManagerEdit() {
+        return "redirect:/admin/martStore/martStoreManagerList";
+    }
+
+
+    /**
+     * 마트 관리자 수정
+     */
+
+    /**
+     * 마트 관리자 삭제
+     */
+    @GetMapping("/martStoreManagerRemove")
+    public String martStoreManagerRemove() {
+        return "/admin/martStore/martStoreManagerRemove";
+    }
 
 
     /**

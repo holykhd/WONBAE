@@ -1,6 +1,7 @@
 package com.wonbae.config.auth;
 
 import com.wonbae.domain.Account;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
 @RequiredArgsConstructor
 public class PrincipalDetails implements UserDetails {
     private final Account account;
@@ -16,7 +18,7 @@ public class PrincipalDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
         collection.add(() -> {
-            return account.getRole();
+            return String.valueOf(account.getRole());
         });
         return collection;
     }

@@ -133,30 +133,37 @@
 
         <div class="container-xxl flex-grow-1 container-p-y">
           <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">상품 관리 /</span> 카테고리 관리</h4>
+
           <!-- Table Search Start -->
           <div class="row">
             <!-- Basic Layout -->
             <div class="col-xxl">
               <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                  <h5 class="mb-0">카테고리 수정하기</h5>
+                  <h5 class="mb-0">2차 카테고리 등록하기</h5>
                 </div>
                 <div class="card-body">
-                  <form th:action="@{/admin/product/categoryEdit}" th:object="${categoryForm}" method="post">
+                  <form th:action="@{/admin/product/subCategoryAdd}" th:object="${categoryForm}" th:method="post">
                     <input type="hidden" th:field="*{id}">
                     <div class="row">
-                      <div class="mb-4 col-md-6">
-                        <label class="form-label" for="cateName">카테고리명</label>
-                        <input class="form-control" type="text" id="cateName" th:field="*{cateName}" autofocus="">
+                      <div class="mb-3 col-md-4">
+                        <label class="form-label" for="oneCateName">1차 카테고리명</label>
+                        <input class="form-control" type="text" id="oneCateName" th:value="${category.cateName}"
+                               readonly>
                       </div>
-                      <div class="mb-4 col-md-6">
+                      <div class="mb-3 col-md-4">
+                        <label class="form-label" for="cateName">2차 카테고리명</label>
+                        <input class="form-control" type="text" id="cateName" th:field="*{cateName}">
+                      </div>
+                      <div class="mb-3 col-md-4">
                         <label class="form-label" for="cateOrder">우선순위</label>
-                        <input class="form-control" type="number" id="cateOrder" th:field="*{cateOrder}" autofocus="">
+                        <input class="form-control" type="number" id="cateOrder" th:field="*{cateOrder}">
                       </div>
                     </div>
                     <div class="row">
                       <div class="demo-inline-spacing col-12 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary me-2 text-white">수정</button>
+                        <a th:href=@{/admin/product/categoryList} class="btn btn-outline-secondary">목록</a>
+                        <button class="btn btn-primary me-2 text-white">등록</button>
                       </div>
                     </div>
                   </form>

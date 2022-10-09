@@ -42,6 +42,10 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" th:href="@{/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}"/>
+    <!-- datatable css -->
+    <link rel="stylesheet" th:href="@{/admin/assets/css/datatables/bootstrap5.css}"/>
+    <link rel="stylesheet" th:href="@{/admin/assets/css/datatables/core.css}"/>
+    <link rel="stylesheet" th:href="@{/admin/assets/css/datatables/theme-default.css}"/>
 
     <!-- Page CSS -->
     <!-- Page -->
@@ -52,5 +56,39 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script th:src="@{/admin/assets/js/config.js}"></script>
+
+    <!--    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">-->
+    <!--    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>-->
+
+    <!--    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>-->
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+
+    <script>
+        // 참조 사이트
+        // https://kutar37.tistory.com/entry/Grid-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%ACDatatables-%EC%82%AC%EC%9A%A9%EB%B2%95%EC%98%88%EC%A0%9C
+        jQuery(function ($) {
+            $("#dataTable").DataTable({
+                lengthMenu: [10, 20, 30, 40, 50],   // 표시 건수를 10단위로 표시
+                stateSave: true,        // 상세페이지 갔다 왔을경우 검색이나 정렬정보 유지
+                scrollX: true,      // 가로 스크롤 보이기
+                language: {
+                    emptyTable: "데이터가 없어요.",
+                    lengthMenu: "페이지당 _MENU_ 개씩 보기",
+                    info: "현재 _START_ - _END_ / _TOTAL_건",
+                    infoEmpty: "데이터 없음",
+                    infoFiltered: "( _MAX_건의 데이터에서 필터링됨 )",
+                    search: "에서 검색: ",
+                    zeroRecords: "일치하는 데이터가 없어요.",
+                    loadingRecords: "로딩중...",
+                    processing: "잠시만 기다려 주세요...",
+                    paginate: {
+                        next: "다음",
+                        previous: "이전"
+                    }
+                },
+            });
+        });
+    </script>
+
 </head>
 </html>

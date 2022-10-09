@@ -19,9 +19,9 @@ public class AdminOrderController {
     /**
      * 주문 목록
      */
-    @GetMapping("/orderList")
+    @GetMapping("/orderCompleteList")
     public String orderList() {
-        return "admin/order/orderList";
+        return "admin/order/orderCompleteList";
     }
 
     /**
@@ -29,7 +29,7 @@ public class AdminOrderController {
      */
     @GetMapping("/orderDetail")
     public String orderDetail() {
-        return "admin/order/orderDetail";
+        return "orderCompleteDetail";
     }
 
     /**

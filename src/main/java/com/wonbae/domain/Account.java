@@ -1,6 +1,7 @@
 package com.wonbae.domain;
 
 import com.wonbae.domain.enumType.GenderRole;
+import com.wonbae.domain.enumType.UserRole;
 import com.wonbae.front.auth.form.SignupForm;
 import lombok.Getter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,28 +42,42 @@ public class Account {
 
     private String addr2;                   // 주소 2
 
+    private String city;                    // 시/도
+
+    @Column(name = "gu_gun")
+    private String guGun;                   // 구/군
+
+    private String dong;                    // 동
+
+    @Column(name = "apt_name")
+    private String aptName;                 // 아파트명
+
+    @Column(name = "dong_ho")
+    private String dongHo;                  // 동/호수
+
     @Column(name = "first_fav_store")
     private String firstFavStore;           // 주 이용 마트명 1
 
     @Column(name = "second_fav_store")
     private String secondFavStore;          // 주 이용 마트명 2
 
-    private String role;                    // 회원 권한
+    @Enumerated(STRING)
+    private UserRole role;                    // 회원 권한
 
     // 문자인증 기능 추가....고민
 
     // https://naosmall.kr/member/join.html 개인정보/이용약관등 내용 참조
     @Column(name = "agree_privacy")
-    private String agreePrivacy;            // 개인정보 수집 동의
+    private boolean agreePrivacy;            // 개인정보 수집 동의
 
     @Column(name = "agree_Service")
-    private String agreeService;            // 이용약관 동의
+    private boolean agreeService;            // 이용약관 동의
 
     @Column(name = "agree_sms")
-    private String agreeSms;                // sms 수신 동의
+    private boolean agreeSms;                // sms 수신 동의
 
     @Column(name = "agree_email")
-    private String agreeEmail;              // email 수신 동의
+    private boolean agreeEmail;              // email 수신 동의
 
 //    private String agreeService;             // 이용약관 동의   https://www.shilladfs.com/estore/kr/ko/signup/consent/terms/popup?consent_type=terms1
 
@@ -71,14 +86,19 @@ public class Account {
     @Column(name = "created_date")
     private LocalDateTime createdDate;      // 등록일
 
+    @Column(name = "last_login_date")
+    private LocalDateTime lastLoginDate;    // 마지막 로그인
+
     @PrePersist
     public void createDate() {
         this.createdDate = LocalDateTime.now();
     }
 
-    // 회원을 가입한다.
+    // 회원을 가입 처리하기
     public void createAccount(SignupForm signupForm, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.email = signupForm.getEmail();
+        this.agreePrivacy = signupForm.isAgreePrivacy();
+        this.agreeService = signupForm.isAgreeService();
         this.password = bCryptPasswordEncoder.encode(signupForm.getRePassword());
     }
 }

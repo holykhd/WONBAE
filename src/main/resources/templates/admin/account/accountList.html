@@ -135,8 +135,8 @@
           <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">회원 관리 /</span> 회원 관리</h4>
 
           <!-- Table Search Start -->
+<!--
           <div class="row">
-            <!-- Basic Layout -->
             <div class="col-xxl">
               <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
@@ -183,93 +183,44 @@
               </div>
             </div>
           </div>
+-->
           <!-- Table Search End -->
 
           <!-- Hoverable Table rows -->
-          <div class="card">
-            <h5 class="card-header">Hoverable rows</h5>
-            <div class="table-responsive text-nowrap">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th class="text-center">최근 이용 마트</th>
-                  <th class="text-center">이메일</th>
-                  <th class="text-center">시/도</th>
-                  <th class="text-center">구/군</th>
-                  <th class="text-center">동</th>
-                  <th class="text-center">아파트명</th>
-                  <th class="text-center">상세주소(동/호수)</th>
-                  <th class="text-center">연락처</th>
-                </tr>
+            <div class="card">
+                <h5 class="card-header">Hoverable rows</h5>
+                <div class="table-responsive text-nowrap mx-3">
+                    <table class="table table-hover p-3" id="dataTable">
+                        <thead>
+                        <tr>
+                            <th class="text-center">이메일</th>
+                            <th class="text-center">주 이용 마트</th>
+                            <th class="text-center">부 이용 마트</th>
+                            <th class="text-center">시/도</th>
+                            <th class="text-center">구/군</th>
+                            <th class="text-center">동</th>
+                            <th class="text-center">아파트명</th>
+                            <th class="text-center">상세주소(동/호수)</th>
+                            <th class="text-center">연락처</th>
+                        </tr>
                 </thead>
-                <tbody class="table-border-bottom-0">
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                <tr>
-                  <td><a th:href="@{/admin/account/accountDetail}"><span
-                          class="badge bg-label-primary me-1 text-lowercase">test@naver.com</span></a></td>
-                  <td><span class="badge bg-label-danger me-1 text-lowercase">M마트 수완점</span></td>
-                  <td>광주광역시</td>
-                  <td>광산구</td>
-                  <td>신가동</td>
-                  <td>휴먼시아 2단지</td>
-                  <td>204동 903호</td>
-                  <td>010-9010-9642</td>
-                </tr>
-                </tbody>
+                        <tbody class="table-border-bottom-0">
+                        <tr th:each="list : ${accountList}">
+                            <td><a th:href="@{/admin/account/accountDetail/{id} (id=${list.id})}"
+                                   class="badge bg-label-primary me-1 text-lowercase" th:text="${list.email}">test@naver.com</span></a>
+                            </td>
+                            <td><span class="badge bg-label-danger me-1 text-lowercase" th:text="${list.firstFavStore}">M마트 수완점</span>
+                            </td>
+                            <td><span class="badge bg-label-danger me-1 text-lowercase"
+                                      th:text="${list.secondFavStore}">M마트 수완점</span></td>
+                            <td th:text="${list.city}">광주광역시</td>
+                            <td th:text="${list.guGun}">광산구</td>
+                            <td th:text="${list.dong}">신가동</td>
+                            <td th:text="${list.aptName}">휴먼시아 2단지</td>
+                            <td th:text="${list.dongHo}">204동 903호</td>
+                            <td th:text="${list.phone}">010-9010-9642</td>
+                        </tr>
+                        </tbody>
               </table>
             </div>
             <div class="demo-inline-spacing">
